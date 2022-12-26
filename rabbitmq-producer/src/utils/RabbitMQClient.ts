@@ -5,6 +5,7 @@ class RabbitMQClient {
   private channel: Channel;
   private uri: string;
   private queueName: string;
+  private exchange = 'amp.direct';
 
 
   constructor(
@@ -34,6 +35,13 @@ class RabbitMQClient {
     const bufferedMessage = Buffer.from(jsonMessage);
 
     return this.channel.sendToQueue(this.queueName, bufferedMessage);
+  }
+
+  async publishInExchange(data: Record<any, any>) {
+    const jsonMessage = JSON.stringify(data)
+    const bufferedMessage = Buffer.from(jsonMessage);
+
+    return this.channel.publish(this.exchange,this.queueName, bufferedMessage)
   }
 }
 
