@@ -1,34 +1,38 @@
-import express from 'express';
+import express, { Application } from 'express';
 import RabbitMQClient from './utils/RabbitMQClient';
-import dotenv from 'dotenv';
+import routes from './routes';
 
-dotenv.config()
-const app = express();
+class App {
+  private express: Application;
 
-const amqpURL = `amqp://${process.env.RABBIT_USER}:${process.env.RABBIT_PASSWORD}@${process.env.RABBIT_URL}/${process.env.RABBIT_VIRTUAL_HOST}`
+  constructor(private rabbitClient: RabbitMQClient) {
+    this.express = express();
+    this.start();
+  }
 
-app.use(express.json());
+  private async start() {
+    await this.startRabbitConnection();
+    this.setupMiddlewares();
+    this.setupRoutes();
+  }
 
+  private async startRabbitConnection() {
+    await this.rabbitClient.start();
+  }
 
-app.post('/sendToQueue', async (req, res) => {
-  const {
-    name, document
-  } = req.body;
+  private setupRoutes() {
+    this.express.use(routes);
+  }
 
-  const rabbitClient = new RabbitMQClient(amqpURL, process.env.RABBIT_QUEUE);
-  await rabbitClient.start();
+  private setupMiddlewares() {
+    this.express.use(express.json());
+  }
 
-  const result = await rabbitClient.publishMessage({
-    name,
-    document
-  });
+  listen() {
+    this.express.listen(3000, () => {
+      console.log("App Running")
+    })
+  }
+}
 
-  res.json({
-    ok: result,
-    username: name
-  })
-})
-
-app.listen(3000, () => {
-  console.log("App Running")
-})
+export default App;

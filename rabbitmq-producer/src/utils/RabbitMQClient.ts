@@ -24,7 +24,6 @@ class RabbitMQClient {
     this.channel = await this.connection.createChannel();
 
     this.queueName = queueName || this.queueName;
-
     await this.channel.assertQueue(this.queueName);
   }
 

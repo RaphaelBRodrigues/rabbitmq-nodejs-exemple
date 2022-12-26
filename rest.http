@@ -2,6 +2,6 @@ POST http://localhost:3000/sendToQueue
 content-type: application/json
 
 {
-  "name": "Raphael",
+  "name": "Rasphael",
   "document": "123445"
 }
