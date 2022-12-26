@@ -5,7 +5,7 @@ class RabbitMQClient {
   private channel: Channel;
   private uri: string;
   private queueName: string;
-  private exchange = 'amp.direct';
+  private exchange = 'amq.direct';
 
 
   constructor(

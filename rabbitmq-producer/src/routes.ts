@@ -8,7 +8,7 @@ routes.post('/sendToQueue', async (req, res) => {
     name, document
   } = req.body;
 
-  const result = await rabbitClient.publishMessage({
+  const result = await rabbitClient.publishInExchange({
     name,
     document
   });
