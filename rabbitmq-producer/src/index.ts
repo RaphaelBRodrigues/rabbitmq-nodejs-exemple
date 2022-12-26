@@ -8,6 +8,6 @@ const {
   rabbitClient
 } = makeApp();
 
-app.listen();
+app.start();
 
 export { rabbitClient };

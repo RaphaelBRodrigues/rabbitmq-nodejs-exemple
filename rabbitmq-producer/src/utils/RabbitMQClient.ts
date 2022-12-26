@@ -25,6 +25,8 @@ class RabbitMQClient {
 
     this.queueName = queueName || this.queueName;
     await this.channel.assertQueue(this.queueName);
+
+    console.log("RabbitMQ Connected")
   }
 
   async publishMessage(data: Record<any, any>) {

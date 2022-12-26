@@ -7,13 +7,13 @@ class App {
 
   constructor(private rabbitClient: RabbitMQClient) {
     this.express = express();
-    this.start();
   }
 
-  private async start() {
+  async start() {
     await this.startRabbitConnection();
     this.setupMiddlewares();
     this.setupRoutes();
+    this.listen();
   }
 
   private async startRabbitConnection() {
