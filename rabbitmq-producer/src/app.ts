@@ -9,16 +9,17 @@ const amqpURL = `amqp://${process.env.RABBIT_USER}:${process.env.RABBIT_PASSWORD
 
 app.use(express.json());
 
+
 app.post('/sendToQueue', async (req, res) => {
   const {
     name, document
   } = req.body;
 
-  const rabbitClient = new RabbitMQClient(amqpURL);
+  const rabbitClient = new RabbitMQClient(amqpURL, process.env.RABBIT_QUEUE);
   await rabbitClient.start();
 
   const result = await rabbitClient.publishMessage({
-    name, 
+    name,
     document
   });
 
