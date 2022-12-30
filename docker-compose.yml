@@ -14,18 +14,18 @@ services:
         timeout: 10s
         retries: 3
 
-
   producer:
       build:
         context: ./rabbitmq-producer
         dockerfile: Dockerfile
       ports: 
         - 3000:3000
+      environment:
+        - RABBITMQ_USER=rabbit
+        - RABBITMQ_PASSWORD=test
       depends_on: 
         rabbitmq:
           condition: service_healthy
-
-    
 
   consumer:
     build: 

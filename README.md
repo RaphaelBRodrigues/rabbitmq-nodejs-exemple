@@ -3,7 +3,7 @@
 # RabbitMQ Nodejs Exemple
 This repository contains a exemple of communication between two applications using RabbitMQ as a broker
 
-The application `rabbitmq-producer` is a web api responsible for capture the client's message and send to the queue, and the `rabbitmq-consumer` is listening the broker and consuming his data
+The application `rabbitmq-producer` is a web api responsible that capture the client's message and send to the queue, and the `rabbitmq-consumer` is listening the broker and consuming his data
 
 ## Getting Started
 * Create a `.env` file based on `.env.exemple` inside the following folders `rabbitmq-consumer` and `rabbitmq-producer`
@@ -18,8 +18,15 @@ The application `rabbitmq-producer` is a web api responsible for capture the cli
     * http://localhost:15672/
 
   * Use the following credentials to login
-    * username: guest
-    * password: guest
+    * Username
+      * `rabbit`
+    * Password
+      * `test`
+
+## References
+  * [RabbitMQ](https://www.rabbitmq.com/)
+  * [Express](https://expressjs.com/pt-br/)
+  * [TypeScript](https://www.typescriptlang.org/)
 
 
 
