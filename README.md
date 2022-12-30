@@ -9,7 +9,7 @@ The application `rabbitmq-producer` is a web api responsible for capture the cli
 * Start the docker containers
   * `docker-compose up`
 
-* Use the `rest.http` file to send a request to the product application
+* Use the `rest.http` file to send a request to producer application
 
 ## Acessing the Panel
   * Enters in the panel using a browser
