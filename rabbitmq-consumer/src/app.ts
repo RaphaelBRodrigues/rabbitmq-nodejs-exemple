@@ -5,7 +5,6 @@ dotenv.config();
 
 const amqpURL = `amqp://${process.env.RABBIT_USER}:${process.env.RABBIT_PASSWORD}@${process.env.RABBIT_HOST}/${process.env.RABBIT_VIRTUAL_HOST}`
 
-
 class Application {
   private rabbitClient: RabbitMQClient
 

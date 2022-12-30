@@ -4,10 +4,10 @@ This repository contains a exemple of communication between two applications usi
 The application `rabbitmq-producer` is a web api responsible for catch the client message and send to the queue, and the `rabbitmq-consumer` is listening the broker and consuming his data
 
 ## Getting Started
-* Run the RabbitMQ container with `docker-compose`
-  * `docker-compose up`
+* Create a `.env` file based on `.env.exemple` inside the following folders `rabbitmq-consumer` and `rabbitmq-producer`
 
-* Create a .env file based on .env.exemple inside the following folders `rabbitmq-consumer` and `rabbitmq-producer`
+* Start the docker containers
+  * `docker-compose up`
 
 * Use the `rest.http` file to send a request to the product application
 

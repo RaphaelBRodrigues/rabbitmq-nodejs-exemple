@@ -1,8 +1,36 @@
+version: "3.8"
+
 services:
   rabbitmq:
-      image: rabbitmq:3-management
-      container_name: rabbitmq
+      image: rabbitmq:3.8-management-alpine
       ports:
           - 5672:5672
           - 15672:15672
-        
+      logging:
+        driver: none
+      healthcheck:
+        test: [ "CMD", "nc", "-z", "localhost", "5672" ]
+        interval: 5s
+        timeout: 10s
+        retries: 3
+
+
+  producer:
+      build:
+        context: ./rabbitmq-producer
+        dockerfile: Dockerfile
+      ports: 
+        - 3000:3000
+      depends_on: 
+        rabbitmq:
+          condition: service_healthy
+
+    
+
+  consumer:
+    build: 
+      context: ./rabbitmq-consumer
+      dockerfile: Dockerfile 
+    depends_on:
+      - rabbitmq
+      - producer
