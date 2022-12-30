@@ -1,7 +1,9 @@
+![RabbitMQ Logo](https://devoxsoftware.com/wp-content/uploads/2020/11/Rabbit-QL.png)
+
 # RabbitMQ Nodejs Exemple
 This repository contains a exemple of communication between two applications using RabbitMQ as a broker
 
-The application `rabbitmq-producer` is a web api responsible for catch the client message and send to the queue, and the `rabbitmq-consumer` is listening the broker and consuming his data
+The application `rabbitmq-producer` is a web api responsible for capture the client's message and send to the queue, and the `rabbitmq-consumer` is listening the broker and consuming his data
 
 ## Getting Started
 * Create a `.env` file based on `.env.exemple` inside the following folders `rabbitmq-consumer` and `rabbitmq-producer`
@@ -12,6 +14,12 @@ The application `rabbitmq-producer` is a web api responsible for catch the clien
 * Use the `rest.http` file to send a request to the product application
 
 ## Acessing the Panel
-You can check the messages sent to RabbitMQ acessing the RabbitMQ `host` in the port `15672`
-e.g http://localhost:15672/
+  * Enters in the panel using a browser
+    * http://localhost:15672/
+
+  * Use the following credentials to login
+    * username: guest
+    * password: guest
+
+
 
