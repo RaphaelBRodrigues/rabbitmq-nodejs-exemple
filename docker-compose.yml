@@ -8,6 +8,9 @@ services:
           - 15672:15672
       logging:
         driver: none
+      environment:
+        - RABBITMQ_DEFAULT_USER=rabbit
+        - RABBITMQ_DEFAULT_PASS=test
       healthcheck:
         test: [ "CMD", "nc", "-z", "localhost", "5672" ]
         interval: 5s
@@ -20,9 +23,6 @@ services:
         dockerfile: Dockerfile
       ports: 
         - 3000:3000
-      environment:
-        - RABBITMQ_USER=rabbit
-        - RABBITMQ_PASSWORD=test
       depends_on: 
         rabbitmq:
           condition: service_healthy
