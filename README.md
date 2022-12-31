@@ -27,6 +27,7 @@ The application `rabbitmq-producer` is a web api responsible that capture the cl
   * [RabbitMQ](https://www.rabbitmq.com/)
   * [Express](https://expressjs.com/pt-br/)
   * [TypeScript](https://www.typescriptlang.org/)
+  * [AmqpLib](https://github.com/amqp-node/amqplib)
 
 
 
