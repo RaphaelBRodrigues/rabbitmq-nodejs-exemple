@@ -23,6 +23,7 @@ The application `rabbitmq-producer` is a web api responsible for capture the cli
 
 ## References
   * [RabbitMQ](https://www.rabbitmq.com/)
+  * [Amqplib](https://github.com/amqp-node/amqplib)
   * [Express](https://expressjs.com/pt-br/)
   * [TypeScript](https://www.typescriptlang.org/)
 
