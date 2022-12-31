@@ -3,15 +3,13 @@
 # RabbitMQ Nodejs Exemple
 This repository contains a exemple of communication between two applications using RabbitMQ as a broker
 
-The application `rabbitmq-producer` is a web api responsible that capture the client's message and send to the queue, and the `rabbitmq-consumer` is listening the broker and consuming his data
+The application `rabbitmq-producer` is a web api responsible for capture the client's message and send to the queue, and the `rabbitmq-consumer` is listening the broker and consuming its data
 
 ## Getting Started
-* Create a `.env` file based on `.env.exemple` inside the following folders `rabbitmq-consumer` and `rabbitmq-producer`
-
 * Start the docker containers
   * `docker-compose up`
 
-* Use the `rest.http` file to send a request to the product application
+* Use the `rest.http` file to send a request to producer application
 
 ## Acessing the Panel
   * Enters in the panel using a browser
