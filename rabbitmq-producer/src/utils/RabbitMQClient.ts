@@ -23,6 +23,7 @@ class RabbitMQClient {
   async start(queueName?: string): Promise<void> {
     this.connection = await connect(this.uri);
     this.channel = await this.connection.createChannel();
+    this.channel.bindQueue(this.queueName, this.exchange, this.queueName);
 
     this.queueName = queueName || this.queueName;
     await this.channel.assertQueue(this.queueName);
@@ -41,7 +42,7 @@ class RabbitMQClient {
     const jsonMessage = JSON.stringify(data)
     const bufferedMessage = Buffer.from(jsonMessage);
 
-    return this.channel.publish(this.exchange,this.queueName, bufferedMessage)
+    return this.channel.publish(this.exchange, this.queueName, bufferedMessage)
   }
 }
 
